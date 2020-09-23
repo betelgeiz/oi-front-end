@@ -1,5 +1,5 @@
 <template>
-  <div class="ReportLayout">
+ <div class="ReportLayout"> 
     <h3>
       Выберите
       <b-badge>существенный факт</b-badge>
@@ -45,10 +45,10 @@
           </tbody>
         </b-table-simple>
       </div>
-      <div></div>
     </template>
-  </div>
+ </div> 
 </template>
+
 
 <script>
 import forms from '../mixins/forms.js';
@@ -77,7 +77,8 @@ export default {
   computed: {
     show() {
       if (this.selected == '') return true;
-      return this.viewFactBody();
+      return this.viewFactBody() ;
+      
     },
   },
   methods: {
@@ -85,10 +86,13 @@ export default {
       this.content = this.forms[this.selected];
       let h = document.getElementById('table-content');
       console.log(h)
+      this.$router.push({path: 'report', query: {type: 'kse', btn: '1' } })
+      //?=kse&btn=0
     },
     back() {
       this.selected = '';
-    },
+      this.$router.push({path: 'report', query: {type: 'kse', btn: '0' } })
+    },    
   },
 };
 </script>
@@ -102,6 +106,7 @@ export default {
   text-align: left;
   margin: 10px 0 !important;
 }
+
 .table-div {
   overflow: auto;
   position: absolute;

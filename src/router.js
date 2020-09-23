@@ -85,13 +85,13 @@ export const router = new Router({
       // lazy-loaded
       component: () => import('./views/Profile.vue')
     },
-    {
-      path: '/test',
-      name: 'Test',
-      meta: { layout: 'main' },
-      // lazy-loaded
-      component: () => import('./views/test.vue')
-    },
+    // {
+    //   path: '/test',
+    //   name: 'Test',
+    //   meta: { layout: 'main' },
+    //   // lazy-loaded
+    //   component: () => import('./views/test.vue')
+    // },
     {
       path: '/anex-1',
       name: 'Anex_1',
@@ -175,20 +175,23 @@ export const router = new Router({
       component: () => import('./views/changePass.vue')
     },
     {
+      path: '/listing',
+      name: 'Listing',
+      meta: { layout: 'main' },
+      component: () => import('./views/Listing.vue')
+    },
+    {
       path: '/layouts',
       name: 'ReportLayout',
-      meta: { layout: 'main' },
-      // lazy-loaded
+      meta: {layout: 'main'},
       component: () => import('./views/ReportLayout.vue')
     },
     {
-      path: '/ecp',
-      name: 'ECP',
-      meta: { layout: 'main' },
-      // lazy-loaded
-      component: () => import('./views/ECP.vue')
+      path: '/broker',
+      name: 'BrokerCompany',
+      meta: {layout: 'main'},
+      component: () => import('./views/BrokerCompany.vue')
     }
-    
   ]
 });
 

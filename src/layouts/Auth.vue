@@ -2,7 +2,7 @@
     <div class="auth">
         <div class="bg">
             <div class="grid"></div>
-            <img src="../assets/bg.jpg" alt="">
+            <!-- <img src="../assets/bg.jpg" alt=""> -->
         </div>
         <router-view />
     </div>
@@ -14,6 +14,15 @@
     height: 100vh;
     width: 100%;
     position: absolute;
+    background-image: url(../assets/bg.jpg);
+    background-position: center center;
+  
+    background-repeat: no-repeat;
+    
+    background-attachment: fixed;
+    
+    /* Изменение размера картинки, в зависимости от экрана */
+    background-size: cover;
 }
 
 .bg {
@@ -29,7 +38,7 @@
 }
 
 .bg img {
-    width: 100%
+    width: 100%;
 }
 
 </style>

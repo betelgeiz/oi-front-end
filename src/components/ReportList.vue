@@ -170,11 +170,11 @@
             >Квитанция</b-button>
           </template>
           <template v-if="row.item.title">
-            <!-- <b-button
+            <b-button
               v-b-modal.modal-form
               @click="kvartalBtn(addKvartal[row.index + 1].kvartal)"
-              variant="outline-dark"  
-            >Сформировать</b-button> -->
+              variant="outline-dark"
+            >Сформировать</b-button>
           </template>
         </p>
       </template>
@@ -262,6 +262,16 @@
         </template>
       </p>
       <b-button class="print" onclick="window.print()">Печать</b-button>
+        <p class="kvitancia">
+          <table>
+            <p>ЖАК "Кыргыз Фондулук Биржасы"</p>
+            <p>ЗАО "Кыргызская Фондовая Биржа"</p>
+            <p>"Kyrgyz Stock Exchange" CJSC</p>
+            <p class="otchet for">ДЛЯ ОТЧЁТОВ</p>
+            <p class="otchet INN">ИНН 02908199410061</p>
+            <p class="otchet str">г.БИШКЕК, ул.Московская, 172</p>
+          </table>
+        </p>
       <b-button class="mt-3 print" block @click="hideModal">Закрыть</b-button>
     </b-modal>
 
@@ -640,6 +650,23 @@ table button {
 
   .bold {
     font-weight: 700;
-  }
+  }  
 }
+.kvitancia{
+     float: right; 
+    /* margin-left: 400px; */
+    color: blue;
+    border: 2px solid blue;
+    line-height: 0.3;
+    padding-top: 10px;
+    width: 260px;
+    padding-left: 5px;
+    font-size: 15px;
+  }
+  .otchet{
+    text-align: center;
+  }
+  .for{
+    font-size: 25px;
+  }
 </style>

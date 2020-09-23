@@ -71,11 +71,7 @@ class AuthService {
 
   updatepassword(password) {
     //console.log('service', password)
-    return instance.put('password', password)
-  }
-
-  acceptToUse() {
-    return instance.put('use')
+    return instance.put('password', {password})
   }
 
 }

@@ -16,9 +16,9 @@ export const report = {
   actions: {
     insert({ commit }, {typedoc, xmldoc, sender, status, kvartal}) {
       return ReportService.insertReport(typedoc, xmldoc, sender, status, kvartal).then(
-        (idReport) => {
+        () => {
           commit('insertSuccess');
-          return idReport.data;
+          return Promise.resolve(true);
         },
         error => {
           return Promise.reject(error);
@@ -26,8 +26,8 @@ export const report = {
       );
     },
 
-    updateReport({ commit }, {id, doc, status, kvartal, typedoc}) {
-      return ReportService.updateReport(id, doc, status, kvartal, typedoc).then(
+    updateReport({ commit }, {id, doc, status}) {
+      return ReportService.updateReport(id, doc, status).then(
         () => {
           commit('updateReportStatus');
           return true;

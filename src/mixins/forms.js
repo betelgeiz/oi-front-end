@@ -39,7 +39,7 @@ export default {
                         title9: { text: 'Номинал ценной бумаги', rowspan: 2 }
                     },
                     body: {
-                        count: 10
+                        count: 9
                     }
                 },
 

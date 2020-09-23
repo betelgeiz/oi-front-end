@@ -61,8 +61,8 @@ class ReportService {
         return instance.put('/reports', { id, interrefer })
     }
 
-    updateReport(id, doc, status, kvartal, typedoc) {     // Изменить отчет
-        return instance.put('/reports/' + id, {id, doc, status, kvartal, typedoc})
+    updateReport(id, doc, status) {     // Изменить отчет
+        return instance.put('/reports/' + id, {id, doc, status})
     }
 
     sendReport (id, type) {   // Изменить статус отчета на отправлен

@@ -1,6 +1,6 @@
 <template>
   <div class="changePass">
-    <h4 style="text-align: center">Рекомендация на смену пароля</h4>
+    <h4 style="text-align: center">Вам необходимо сменить пароль</h4>
     <div class="form-box">
       <ul class="validation-box">
         <li class="done validation-item">
@@ -19,128 +19,109 @@
       <div class="form-field">
         <input class="form-input" id="password" v-model="pass" type="password" />
         <label class="form-label" for="password">Пароль</label>
-        <div class="form-input-lock" v-html="passChech"></div>
+        <div class="form-input-lock" v-html="passChech">
+        </div>
       </div>
       <br />
       <br />
       <button class="save" id="save" disabled @click="save">сохранить</button>
-      
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
-  
   computed: {
-
     minCharCheck() {
       if (this.pass.length < 8) {
-        this.countItem(3, 0);
+        this.countItem(3, 0)
         return this.checkFalse;
       }
-      this.countItem(3, 1);
+      this.countItem(3, 1)
       return this.checkTrue;
     },
 
     numCheck() {
       let numbers = this.pass.match(/(\d+)/g); // массив с числами str.matches("A-Z")
       if (!numbers) {
-        this.countItem(2, 0);
+        this.countItem(2, 0)
         return this.checkFalse;
       }
-      this.countItem(2, 1);
+      this.countItem(2, 1)
       return this.checkTrue;
     },
 
     upCheck() {
       let numbers = this.pass.match(/([A-Z]+)/g); // массив с числами str.matches("A-Z")
       if (!numbers) {
-        this.countItem(0, 0);
+        this.countItem(0, 0)
         return this.checkFalse;
       }
-      this.countItem(0, 1);
+      this.countItem(0, 1)
       return this.checkTrue;
     },
 
     lowCheck() {
       let numbers = this.pass.match(/([a-z]+)/g); // массив с числами str.matches("A-Z")
       if (!numbers) {
-        this.countItem(1, 0);
+        this.countItem(1, 0)
         return this.checkFalse;
       }
-      this.countItem(1, 1);
+      this.countItem(1, 1)
       return this.checkTrue;
     },
 
     passChech() {
-      if (
-        this.items[0].status == false ||
-        this.items[1].status == false ||
-        this.items[2].status == false ||
-        this.items[3].status == false 
-      ) {
+      if (this.items[0].status == false || this.items[1].status == false || this.items[2].status == false || this.items[3].status == false) {
         //document.getElementById('save').setAttribute("disabled", "disabled")
-        return this.passFalse;
+        return this.passFalse
       }
-      document.getElementById('save').removeAttribute('disabled');
-      return this.passTrue;
-    },
-
-
+      document.getElementById('save').removeAttribute('disabled')
+      return this.passTrue
+    }
   },
   data() {
     return {
-      items: [
-        { status: false /*upperCase*/ },
-        { status: false /**lowerCase */ },
-        { status: false /*number*/ },
-        { status: false /*minChar*/ },
-      ],
+      items: [{status: false /*upperCase*/}, {status: false/**lowerCase */}, {status: false /*number*/}, {status: false /*minChar*/}],
       pass: '',
       checkFalse:
         '<svg width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6A6 6 0 110 6a6 6 0 0112 0z" fill="#FFFFFF"></path></svg>',
       checkTrue:
         '<svg width="14" height="12" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline class="check" points="1,7 5,11 13,1" fill="none" stroke="#FFFFFF" stroke-width="2px" stroke-linecap="round"></polyline></svg>',
-      passTrue:
-        '<svg xmlns="http://www.w3.org/2000/svg" class="lock-icon locked" width="20" height="20"><path d="M4 8V6a6 6 0 1112 0v2h400a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2v-8c0-1.1.9-2 2-2h400zm5 6.73V17h2v-2.27a2 2 0 10-2.009-.005L9 14.73zM7 6v2h6V6a3 3 0 10-6 0z"></path></svg>',
-      passFalse:
-        '<svg xmlns="http://www.w3.org/2000/svg" class="lock-icon false" width="20" height="20"><path d="M4 8V6a6 6 0 1112 0h-3v2h4a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2v-8c0-1.1.9-2 2-2h400zm5 6.73V17h2v-2.27a2 2 0 10-2.009-.005L9 14.73zM7 6v2h6V6a3 3 0 10-6 0z"></path></svg>',
+      passTrue: '<svg xmlns="http://www.w3.org/2000/svg" class="lock-icon locked" width="20" height="20"><path d="M4 8V6a6 6 0 1112 0v2h1a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 10-2.009-.005L9 14.73zM7 6v2h6V6a3 3 0 10-6 0z"></path></svg>',
+      passFalse: '<svg xmlns="http://www.w3.org/2000/svg" class="lock-icon false" width="20" height="20"><path d="M4 8V6a6 6 0 1112 0h-3v2h4a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 10-2.009-.005L9 14.73zM7 6v2h6V6a3 3 0 10-6 0z"></path></svg>'
     };
   },
 
   methods: {
     save() {
-      let password = this.pass;
-      if (
-        this.items[0].status == true ||
-        this.items[1].status == true ||
-        this.items[2].status == true ||
-        this.items[3].status == true
-      ) {
+      let password = this.pass
+      if (this.items[0].status == true || this.items[1].status == true || this.items[2].status == true || this.items[3].status == true) {
         this.$store
-          .dispatch('auth/updatepassword', {password})
-          .then(() => {
+        .dispatch('auth/updatepassword',  password)
+        .then(() => {
             this.$router.push('/reporting');
-          })
-          .catch(function (error) {
-            (error.response && error.response.data) ||
-              error.message ||
-              error.toString();
-          });
+        })
+        .catch(function (error) {
+          (error.response && error.response.data) ||
+                error.message ||
+                error.toString();
+        });
       }
+      
     },
 
     countItem(i, type) {
-      if (type == 1) return (this.items[i].status = true);
-      return (this.items[i].status = false);
+      if (type == 1)
+        return this.items[i].status = true
+      return this.items[i].status = false
     }
-  },
+  }
 };
 </script>
 
 <style lang="scss">
+
 :root {
   --blue: #007bff;
   --green: hsl(148, 26%, 48%);
@@ -175,7 +156,7 @@ export default {
   color: transparent;
   text-shadow: 0 0 0 var(--blue);
   text-transform: uppercase;
-  border: none;
+  border: none
 }
 
 .validation-box {
@@ -243,6 +224,8 @@ export default {
   transform: scale(0.98);
   transition: var(--transition);
 }
+
+
 
 .form-input {
   padding-left: var(--space);

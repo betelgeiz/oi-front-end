@@ -13,7 +13,7 @@ export default {
                         {
                             key: 'title3',
                             label: '1-3 месяца'
-                        },
+                        },      
                         {
                             key: 'title4',
                             label: '3-6 месяцев'
